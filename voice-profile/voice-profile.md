@@ -116,6 +116,7 @@
 - "you got it" (go-to acknowledgment)
 - "TY" (quick thanks — Slack and email)
 - "please" (generous, natural cadence, not a hedge)
+- "plz" (slack DM abbreviation for "please" — used to soften asks with familiar colleagues, especially [MANAGER])
 - "any objections?" (preferred approval framing)
 - "quick update" / "hello hello quick update"
 - "*gently* following-up" (softened nudge)
