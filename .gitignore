@@ -1,0 +1,47 @@
+# Populated practice profiles (contain client/company specifics)
+**/config/**/CLAUDE.md
+**/company-profile.md
+
+# Populated operating rules and policy briefings (contain PII + confidential policy content)
+operating-rules.md
+subagent-policy-briefing.md
+
+# Matter workspaces (client work product)
+**/matters/
+
+# Outputs (work product with client content)
+**/outputs/
+
+# Re-include the scaffold examples (documentation of folder structure, not actual work product)
+!folder-scaffolds/
+!folder-scaffolds/**
+
+# Verification logs (contain client-specific citations)
+**/verification-log.md
+
+# Raw voice analysis files (block by default — must be sanitized before commit)
+# Sanitized voice profiles WITH [PLACEHOLDER] labels for any named individuals/companies
+# may be committed (voice is portable; specific names/clients are not)
+**/voice-profile/raw/**
+**/voice-profile/sources/**
+
+# Session data
+**/.claude/sessions/
+
+# Environment and secrets
+.env
+*.key
+*.pem
+credentials.*
+
+# macOS
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node (if any tooling gets added)
+node_modules/
