@@ -1,4 +1,6 @@
 # Slack Voice Profile -- [USER_NAME]
+
+> **Anonymized template, one user's voice patterns shown as illustrative examples.** Replace specifics with your own when adopting. The patterns themselves (rapid-fire DMs, "any objections?" framing, specific sign-off words) are one user's preferences, not universal rules.
 *Generated from Slack analysis on 2026-05-18*
 
 ## Summary (3 sentences)
@@ -13,7 +15,7 @@
 - **Work channel tone**: Professional but still personal. Uses structured formatting (numbered lists, bold) but peppers in personality ("we are not going to magically explain our positions again").
 - **Escalation tone**: Direct and firm without being aggressive. States facts, names the issue, proposes next steps. Does not soften to the point of ambiguity.
 - **With senior stakeholders / cross-functional**: Slightly more formal framing but still sounds like herself. Opens with context, states the ask clearly, closes with an invitation to discuss.
-- **Emotional range**: Not afraid to express frustration, excitement, or vulnerability — names feelings directly rather than masking them.
+- **Emotional range**: Not afraid to express frustration, excitement, or vulnerability, names feelings directly rather than masking them.
 
 ---
 
@@ -132,7 +134,7 @@
 ## Humor & Personality
 
 - **Self-deprecating in a confident way**: "on an unrelated note, another win for me this week is that I just remembered to tag [CLIENT] for [COLLEAGUE]. That's the good news. the bad news is..." -- frames small wins with gentle irony.
-- **Dramatic flair for emphasis**: Uses theatrical phrasing to register stress or surprise — "I have no control over my life or day - which is a problem in and of itself" / "not to be alarmist but this [TOPIC] is scaring the daylights out of me"
+- **Dramatic flair for emphasis**: Uses theatrical phrasing to register stress or surprise, "I have no control over my life or day - which is a problem in and of itself" / "not to be alarmist but this [TOPIC] is scaring the daylights out of me"
 - **Playful with close colleagues**: "otherwise we're ghosts!!" (re: admin access) / "the third time is the charm"
 - **Real-talk energy**: "my plan is to do what I can do and at some point, embrace that they have to realize it's a holiday" / "they seem to be wanting to die on this hill"
 - **Personal sharing**: Shares life context naturally when relevant -- appointments affecting availability, weekend plans, holiday greetings. Treats colleagues as whole people.
