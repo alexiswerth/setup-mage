@@ -93,18 +93,27 @@ Mirror the folder structure from `folder-scaffolds/google-drive-layout/` in your
 
 ## Step 6: Wire policy into Claude's persistent memory
 
-Create or update these three files so Claude reads your policies in every session:
+Three CLAUDE.md files so every Claude Code session that opens against your home directory becomes your master agent, with your rules and voice loaded.
 
-### `~/CLAUDE.md` (global, project-wide)
-Tells Claude about you, your accounts, and which policies apply.
+Copy each template from `github-templates/` to its target path, then fill in placeholders (`[USER_NAME]`, `[MASTER_AGENT_NAME]`, `[DEVICE_LABEL]`).
 
-### `~/.claude/CLAUDE.md` (user-level)
-Points Claude at the operating rules and voice profile files.
+```bash
+cp ~/Desktop/setup-mage/github-templates/CLAUDE-template-global.md ~/CLAUDE.md
+cp ~/Desktop/setup-mage/github-templates/CLAUDE-template-user.md ~/.claude/CLAUDE.md
+cp ~/Desktop/setup-mage/github-templates/CLAUDE-template-workspace.md ~/Desktop/Claude/CLAUDE.md
+```
 
-### `~/Desktop/Claude/CLAUDE.md` (workspace-level)
-Specific to your workspace — describes how you prefer to work.
+Then open each file and replace:
 
-Use the templates in this repo as starting points; fill in your specifics.
+| Placeholder | What to put |
+|---|---|
+| `[USER_NAME]` | Your name |
+| `[MASTER_AGENT_NAME]` | The name you picked for your master agent (e.g., Mage) |
+| `[DEVICE_LABEL]` | This device (e.g., home-mac, work-mac) |
+| `[YOUR_SIGNATURE_WORD]` | Your email sign-off word (e.g., Warmly, Best) |
+| `[TBD ...]` lines | Whatever applies to your setup |
+
+**These three files are LOCAL only.** They contain your real name and live outside any repo, so they never get committed. The templates in this repo are the rebuildable seed.
 
 ---
 

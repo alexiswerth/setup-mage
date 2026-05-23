@@ -57,6 +57,20 @@ The subagent briefing is a compact version of the operating rules designed to be
 
 ---
 
+## CLAUDE.md templates (new)
+
+Three CLAUDE.md files wire your master agent identity into every Claude Code session. They live OUTSIDE this repo (in your home directory) and contain your real name and device specifics, so they never get committed. The templates here are the rebuildable seed.
+
+| Template | Target path | What it does |
+|---|---|---|
+| `CLAUDE-template-global.md` | `~/CLAUDE.md` | Global identity, hard rules, voice rules, workspace paths |
+| `CLAUDE-template-user.md` | `~/.claude/CLAUDE.md` | User-level config, subagent rules, plugin list |
+| `CLAUDE-template-workspace.md` | `~/Desktop/Claude/CLAUDE.md` | Workspace folder layout and working preferences |
+
+Copy each, fill in `[USER_NAME]`, `[MASTER_AGENT_NAME]`, `[DEVICE_LABEL]`, and other placeholders. See `setup-guide.md` Step 6 for the bash one-liners.
+
+---
+
 ## File inventory
 
 ```
@@ -66,5 +80,8 @@ github-templates/
 ├── operating-rules-template-hybrid.md           ← Full structure, anonymized (teaching practice)
 ├── operating-rules-client-setup.md              ← Guided fill-in (client onboarding)
 ├── subagent-policy-briefing-template.md         ← Generic subagent briefing
-└── subagent-policy-briefing-template-hybrid.md  ← Detailed subagent briefing
+├── subagent-policy-briefing-template-hybrid.md  ← Detailed subagent briefing
+├── CLAUDE-template-global.md                    ← ~/CLAUDE.md template (global identity)
+├── CLAUDE-template-user.md                      ← ~/.claude/CLAUDE.md template (user-level)
+└── CLAUDE-template-workspace.md                 ← ~/Desktop/Claude/CLAUDE.md template (workspace)
 ```
