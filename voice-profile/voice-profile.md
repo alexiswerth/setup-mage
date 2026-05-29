@@ -1,6 +1,7 @@
-# Unified Voice Profile, [USER_NAME]
+> **Anonymized example from a live Mage setup.** Real names, companies, and identifying details are replaced with [TOKENS]. Patterns are illustrative, not universal rules; swap in your own specifics when adopting.
+> _Auto-synced by sync-setup-mage.sh. Do not hand-edit this file, changes are overwritten on the next sync._
 
-> **Anonymized template, one user's voice patterns shown as illustrative examples.** Replace specifics with your own when adopting. The patterns themselves (rapid-fire DMs, "any objections?" framing, specific sign-off words) are one user's preferences, not universal rules.
+# Unified Voice Profile, [USER_NAME]
 *Generated from Slack (~160 messages) and Gmail (sent mail) analysis on 2026-05-18*
 
 ---
@@ -33,7 +34,7 @@
 
 ### With [MANAGER]
 - **Slack**: Most casual register. Rapid-fire. Thinks out loud. Self-corrects in real time. Shares personal context freely. Humor and exclamation marks.
-- **Email**: Respectful but comfortable. [affectionate response] Checks before acting: "I want to send this to [person], but wanted to confirm first." Defers when appropriate: "I think I have to defer to you on this one." 1-3 sentences typical.
+- **Email**: Respectful but comfortable. Checks before acting: "I want to send this to [person], but wanted to confirm first." Defers when appropriate: "I think I have to defer to you on this one." 1-3 sentences typical.
 - **Both**: Sends drafts for approval before important external sends.
 
 ### With Sales / Business Teams
@@ -63,7 +64,7 @@
 | Context | Pattern |
 |---|---|
 | DM (close colleague) | "hey!" / "Hello!" / "hello hello!" |
-| Group channel | "Hi Team!" / "Morning, team," |
+| Group channel | "Hi Team!" / "Morning, team, " |
 | Status update | "Quick update" / "okay good news neutral news" |
 | Email (external) | Always "Hi [Name]," |
 | Email (internal quick) | No greeting, just the answer |
@@ -119,6 +120,7 @@
 - "TY" (quick thanks, Slack and email)
 - "please" (generous, natural cadence, not a hedge)
 - "plz" (slack DM abbreviation for "please", used to soften asks with familiar colleagues, especially [MANAGER])
+- "Q's" (informal abbreviation for "questions", used DELIBERATELY in customer-facing legal comments as a disarming move; do NOT scrub to "questions" in formal contexts. Established 2026-05-28: "Q's is my voice queen. I like that it's informal, it disarms.")
 - "any objections?" (preferred approval framing)
 - "quick update" / "hello hello quick update"
 - "*gently* following-up" (softened nudge)
@@ -144,6 +146,14 @@
 - "Best regards" or "Sincerely" in email
 - "per my last email" or passive-aggressive formulations
 - Legal jargon with non-lawyers without explaining it
+
+---
+
+## Archived (retired from active use)
+
+These were genuine voice patterns once. They are kept for historical record only. Mage must NOT use them in active drafts or chat.
+
+- "[archived affectionate phrase]": affectionate-respect phrase, originally used with [FORMER_MANAGER] during [USER_NAME]'s time at [FORMER_COMPANY]. Retired from active use 2026-05-28. [USER_NAME] is emotionally past using it with anyone outside that specific relationship and context. Historical record only; do not use.
 
 ---
 
@@ -187,7 +197,7 @@
 21. Use "TY" in fast threads, "thank you" normally, "THANK YOU" for genuine gratitude
 
 ### DON'T:
-0. **NEVER USE EM DASHES (,) in any output for [USER_NAME].** Use commas, periods, parentheses, or semicolons instead. This applies to drafts Mage produces for [USER_NAME] to send AND to Mage's own chat responses to her. Hard rule established 2026-05-20.
+0. **NEVER USE EM DASHES (, ) in any output for [USER_NAME].** Use commas, periods, parentheses, or semicolons instead. This applies to drafts Mage produces for [USER_NAME] to send AND to Mage's own chat responses to her. Hard rule established 2026-05-20.
 1. Don't use "Best regards" or "Sincerely", those aren't [USER_NAME]
 2. Don't use legal jargon with business teams without explaining it
 3. Don't write long emails to [MANAGER], they get 1-3 sentences
