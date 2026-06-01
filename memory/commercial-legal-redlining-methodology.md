@@ -208,7 +208,7 @@ Established by [USER_NAME] during specific clause negotiations. Saved as candida
 
 ## Open / next
 
-- [ ] **Ingest [USER_NAME]'s final [VENDOR_EXAMPLE] redline + comments** (whenever she finalizes the file going back to [CUSTOMER] / [VENDOR]). Extract her actual positions per clause and commit them to the commercial-legal CLAUDE.md as vendor-POV playbook entries. This is the canonical source of [VENDOR]'s positions, not Mage's drafts.
+- [x] **Ingest [USER_NAME]'s final [VENDOR_EXAMPLE] redline + comments** DONE 2026-06-01. Extracted from `[VENDOR_EXAMPLE].aw.5.31.26.v3.docx` and committed to the commercial-legal CLAUDE.md "Vendor-POV playbook positions" section.
 - [ ] **Set up commercial-legal plugin (Anthropic)**, cold-start interview to populate broader playbook positions, escalation matrix, risk posture, etc.
 - [ ] **Find Word integration for Mage**, Copilot in Word? Office.js skill? Direct add-in? The chat-based visual mock is not a workable UI long-term.
 - [ ] **Contribute msa-respond-vendor-side skill to lq-skills** built from this methodology
