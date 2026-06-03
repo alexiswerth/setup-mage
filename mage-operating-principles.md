@@ -43,17 +43,17 @@ When making commits, writing memory entries, or applying patches, tag with the i
 
 Critical knowledge that should propagate across all instances:
 
-1. **Voice profile updates** — when your voice/dialect rules evolve, every instance should know
-2. **Operational lessons** — when one instance learns something the hard way, others benefit
-3. **Critical patches/errors** — when one instance discovers a bug or correction, the correction propagates
-4. **Architecture/identity rules** — when the master agent's role is updated, every instance respects the update
+1. **Voice profile updates**, when your voice/dialect rules evolve, every instance should know
+2. **Operational lessons**, when one instance learns something the hard way, others benefit
+3. **Critical patches/errors**, when one instance discovers a bug or correction, the correction propagates
+4. **Architecture/identity rules**, when the master agent's role is updated, every instance respects the update
 
 ### Sync mechanisms
 
 No automated sync exists by default. Options to evaluate:
 
 - **Shared core memory file** in cloud storage that all instances read at session start
-- **GitHub-based shared memory** (a public-safe principles repo, like this one) — each instance pulls latest at session start
+- **GitHub-based shared memory** (a public-safe principles repo, like this one), each instance pulls latest at session start
 - **Custom MCP server** as canonical source of truth for domain-specific patterns
 - **Manual patch notes** the user curates and pushes to each instance on a cadence
 
@@ -71,9 +71,9 @@ Outputs and work product fall into three tiers based on sensitivity:
 
 | Tier | What's in it | Lives where |
 |---|---|---|
-| **Tier 0 — Raw** | Real organizational content, real names, real positions, real internal references | Local filesystem ONLY. Never committed anywhere, even private repos, without explicit acknowledgment. |
-| **Tier 1 — Org-internal-safe** | Customer/external-party-specific data scrubbed. Org internals (team names, internal frameworks) kept. | Org-internal repo (if available). May require approval. |
-| **Tier 2 — Portable / "Travel Version"** | All identifying specifics stripped (customers, internal team names, project codenames, dollar amounts). Keeps the FRAMEWORK and METHODOLOGY comprehensive. Generic enough to take with you across roles. | Public/personal repos (like this one). |
+| **Tier 0: Raw** | Real organizational content, real names, real positions, real internal references | Local filesystem ONLY. Never committed anywhere, even private repos, without explicit acknowledgment. |
+| **Tier 1: Org-internal-safe** | Customer/external-party-specific data scrubbed. Org internals (team names, internal frameworks) kept. | Org-internal repo (if available). May require approval. |
+| **Tier 2: Portable / "Travel Version"** | All identifying specifics stripped (customers, internal team names, project codenames, dollar amounts). Keeps the FRAMEWORK and METHODOLOGY comprehensive. Generic enough to take with you across roles. | Public/personal repos (like this one). |
 
 ### What's "yours" vs. what's "theirs"
 
@@ -90,20 +90,20 @@ Tier 2 captures what's yours. Tier 0/1 captures what's theirs (or a mix).
 
 Five checks:
 
-1. **Policy check** — does this comply with all applicable security/AI/data policies?
-2. **Data classification** — what data flows through? Any Confidential or customer data?
-3. **Commit plan** — what's template (shareable) vs. content (local-only)?
-4. **Access scope** — what's the minimum access needed?
-5. **Show the plan** — surface to the user, wait for approval.
+1. **Policy check**, does this comply with all applicable security/AI/data policies?
+2. **Data classification**, what data flows through? Any Confidential or customer data?
+3. **Commit plan**, what's template (shareable) vs. content (local-only)?
+4. **Access scope**, what's the minimum access needed?
+5. **Show the plan**, surface to the user, wait for approval.
 
 ### Gate 2: Pre-Commit Review (run before every commit to any repo)
 
 Five steps:
 
 1. **Identify** structure/template vs. real organizational content
-2. **Strip** all real names, matter details, PII, populated positions, confidential data — replace with generic placeholders that can't be reverse-engineered
+2. **Strip** all real names, matter details, PII, populated positions, confidential data, replace with generic placeholders that can't be reverse-engineered
 3. **Show** proposed diff to the user
-4. **Confirm** — wait for explicit approval
+4. **Confirm**, wait for explicit approval
 5. **Update .gitignore** if new confidential patterns emerged
 
 **PII Sanitization Standard**: Placeholders must be generic enough that surrounding context can't be used to re-identify. Use the broadest category (`[MANAGER]` not `[SVP_LEGAL]`, `[VENDOR]` not `[VENDOR_PRIVACY]`).
@@ -120,7 +120,7 @@ When saving new versions of a file, append `.v#` before the extension. Example:
 
 Rules:
 - Bump version on meaningful content changes (new sections, corrections, source re-ingestion)
-- Don't bump on tiny edits within an active review session — bump when finalizing a meaningful update
+- Don't bump on tiny edits within an active review session, bump when finalizing a meaningful update
 - Keep prior versions as audit trail (don't delete `.v1` when shipping `.v2`)
 
 ---
@@ -152,9 +152,9 @@ If the manual step is under 30 seconds, the user should just do it manually. Sav
 
 Pattern this applies to: file uploads, opening URLs in browser, sending emails the user could send, uploading attachments. If it's "do this once," manual usually wins.
 
-### Lesson: Be precise — IT/admin requests need EXACT names, not general descriptions
+### Lesson: Be precise, IT/admin requests need EXACT names, not general descriptions
 
-When asking IT (or any approval authority) to take action on a specific resource (connector, plugin, tool, integration), look up and include the EXACT name as it appears in the relevant directory/admin console — not just a description.
+When asking IT (or any approval authority) to take action on a specific resource (connector, plugin, tool, integration), look up and include the EXACT name as it appears in the relevant directory/admin console, not just a description.
 
 If you can't verify the exact name, flag the uncertainty in the ticket explicitly.
 
@@ -163,6 +163,16 @@ If you can't verify the exact name, flag the uncertainty in the ticket explicitl
 When an approval/decision unblocks a NEW dependency with lead time (IT enablement, vendor review, account provisioning), surface that to the user immediately and recommend initiating it during downtime. Don't wait for the next session to discover the dependency.
 
 End every session by asking: "is there anything with multi-day lead time we can kick off now while we're between sessions?"
+
+### Lesson: Validate what a vendor connector actually exposes before designing around it
+
+When building an agent on top of a vendor's integration, confirm what the connector can actually do before you architect around it. Two traps:
+
+1. **Conversational/search tools often cap or sample results.** A vendor MCP may expose a natural-language search tool that returns "the most relevant" records, not an exhaustive list. That is fine for "find me X" but breaks any workflow that needs the COMPLETE population (e.g., aggregate analysis, backfills, drift detection across all records). If you need exhaustiveness, confirm the connector supports bulk export or paginated enumeration. Test with a query whose true count you can independently estimate, if the returned count looks suspiciously round or small, it is probably capped.
+
+2. **An MCP connector and a native indexing connector are different integration types.** An MCP exposes on-demand tools to an LLM surface (query at request time). A native indexing connector runs a background crawl and feeds an enterprise search index. A vendor may support one but not the other for a given destination, and using the wrong one can fail in confusing ways (e.g., auth that never completes). Match the integration type to the destination: MCP for LLM/agent surfaces, native connector for enterprise search.
+
+The cheap insurance: run one small test call early, inspect exactly what comes back (full text? metadata only? a capped list?), and let that shape the design, rather than assuming the connector does what its marketing copy implies.
 
 ---
 
