@@ -1,6 +1,6 @@
 # Daily Legal / Privacy / GRC News Briefing, Pattern
 
-*A reusable pattern for a master agent that curates a daily legal/privacy/GRC news briefing from public sources and drops it into a doc for review. Originally built for a legal-ops practitioner who wanted their own version of a colleague's recurring news-clips digest, refreshed automatically each morning.*
+*A reusable pattern for a master agent that curates a daily legal/privacy/GRC news briefing from public sources and drops it into a doc for review.*
 
 **What's in this folder:**
 - `README.md` (this file): the methodology, how to set it up and automate it
