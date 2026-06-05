@@ -31,8 +31,9 @@ When converting a Tier 0 work product (real playbook, real positions, real names
 | File | What it covers | Mature? |
 |---|---|---|
 | `super-playbook-pattern.md` | Building a paste-in master agent brief for Claude for Word that turns the AI into a domain-aware reviewer (originally built for commercial-legal SSA/DPA reviews) | ✅ first stable pattern |
-
-More to come as patterns prove themselves in real Mage instances.
+| `mcp-clause-extraction-pattern.md` | Extracting contract positions from a CLM MCP by querying clause-by-clause instead of contract-by-contract. Workaround for capped MCP results. | ✅ v1 stable |
+| `clm-to-warehouse-pipeline-pattern.md` | Architecture for moving contract data from a CLM into a data warehouse for full population access when MCP limits block you. | ✅ v1 stable |
+| `mcp-limitations-audit-pattern.md` | 7-test checklist for discovering the actual data access limits of any MCP connector before building on it. | ✅ v1 stable |
 
 ## How to use a pattern
 
