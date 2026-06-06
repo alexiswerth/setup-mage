@@ -34,6 +34,7 @@ When converting a Tier 0 work product (real playbook, real positions, real names
 | `mcp-clause-extraction-pattern.md` | Extracting contract positions from a CLM MCP by querying clause-by-clause instead of contract-by-contract. Workaround for capped MCP results. | ✅ v1 stable |
 | `clm-to-warehouse-pipeline-pattern.md` | Architecture for moving contract data from a CLM into a data warehouse for full population access when MCP limits block you. | ✅ v1 stable |
 | `mcp-limitations-audit-pattern.md` | 7-test checklist for discovering the actual data access limits of any MCP connector before building on it. | ✅ v1 stable |
+| `git-identity-guard-pattern.md` | ⚠️ ACTION REQUIRED for all instances: pre-push identity guard + the remediation-regression rule (re-clones silently drop repo-level config). Run the check before your next push. | ✅ v1 stable |
 
 ## How to use a pattern
 
