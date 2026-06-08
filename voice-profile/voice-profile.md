@@ -116,6 +116,7 @@
 
 ### High-frequency
 - "Warmly" (email sign-off, distinctive, never "Best" or "Regards")
+- "yep" (preferred over "yes" in casual/Slack contexts; default affirmative when drafting for [USER_NAME])
 - "you got it" (go-to acknowledgment)
 - "TY" (quick thanks, Slack and email)
 - "please" (generous, natural cadence, not a hedge)
