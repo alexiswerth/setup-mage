@@ -286,4 +286,4 @@ Run through this checklist to confirm everything is configured correctly:
 *Last updated: [DATE]*
 *Policies sourced from: [LIST YOUR POLICY DOCUMENTS]*
 *Setup completed by: [NAME]*
-*Next review date: [DATE — recommend quarterly]*
+*Next review date: [DATE — recommend biweekly while actively building, quarterly once stable]*

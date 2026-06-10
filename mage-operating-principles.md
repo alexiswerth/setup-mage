@@ -144,6 +144,18 @@ Don't reframe safety catches as "limitations." The right response:
 2. Use the simpler path (which often was right all along)
 3. Note the lesson and move on
 
+### Lesson: Search the source, not just memory
+
+When answering a question about something the user actually sent or said (a message, a document, a thread, a meeting), go back to the PRIMARY SOURCE and re-read it. Memory summaries and session notes are secondary; the hard copy is authoritative.
+
+Why: summaries compress. Details that seemed unimportant at write time (an exact date, a qualifier, a name, "potentially only until Friday") are exactly the details that matter later. A memory note that paraphrases the source will silently drop them, and an agent that answers from the paraphrase will state the dropped detail wrong with full confidence.
+
+The rule:
+1. If the source artifact exists on disk (export, transcript, docx, email), open it and search it before answering.
+2. Treat memory notes as an index that points TO sources, not a replacement FOR them.
+3. When a memory note and the source disagree, the source wins, and fix the note.
+4. If the source is unavailable, say so explicitly ("from my notes, unverified against the original").
+
 ### Lesson: Default to the simplest path before automating
 
 Before trying to automate a one-time task, ask: "what's the simplest path?"

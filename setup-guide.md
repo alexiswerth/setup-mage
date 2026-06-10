@@ -76,6 +76,8 @@ Mirror the folder structure from `folder-scaffolds/google-drive-layout/` in your
 
 3. **This populated file is gitignored** — it never gets committed.
 
+4. **If your organization has no written AI policy yet** (common!), don't stall here. Mark each policy section `POLICY NOT YET DEFINED — using template guidance` and use the template's built-in guidance as your starting framework (it's distilled from NIST AI RMF and ISO 42001 norms). Two rules even without a policy: get your CTO/CISO's verbal OK on the tools you're using, and revisit this file the day a written policy lands.
+
 ---
 
 ## Step 5: Build your subagent policy briefing
@@ -121,14 +123,17 @@ Then open each file and replace:
 
 1. Read `voice-profile/voice-profile.md` to understand the structure
 2. Either: (a) have Claude analyze your Slack + Gmail in a session to generate your own, or (b) build it manually based on examples you write
-3. Save the result to `~/Desktop/Claude/voice-profile/voice-profile.md`
-4. **Sanitize before committing** — strip any real names, replace with `[MANAGER]`, `[VENDOR]`, `[CUSTOMER]` etc.
+3. To invoke the analysis in a session: connect your Gmail (and Slack export if you have one), then ask your master agent to "read my last ~200 sent messages and draft a voice profile using the structure in voice-profile.md — patterns only, with examples." Review and prune; you own what's documented about you.
+4. Save the result to `~/Desktop/Claude/voice-profile/voice-profile.md`
+5. **Sanitize before committing** — strip any real names, replace with `[MANAGER]`, `[VENDOR]`, `[CUSTOMER]` etc.
 
 ---
 
 ## Step 8: Install the plugins
 
-If using the Claude for Legal marketplace:
+First check whether the Claude for Legal marketplace is available to you: in Claude Code, run `/plugin marketplace list`. If a claude-for-legal source appears, you have it.
+
+If available:
 ```bash
 # In Claude Code:
 /plugin marketplace add <plugin-source>
@@ -136,7 +141,9 @@ If using the Claude for Legal marketplace:
 # (repeat for other plugins)
 ```
 
-For each plugin, run its `cold-start-interview` skill to populate its practice profile.
+**If the marketplace is NOT available** (older Claude Code version, restricted org settings, or no source URL): don't block. The plugins are conveniences, not prerequisites — everything in this guide works without them. Skip to Step 9, and either (a) update Claude Code (`claude update`) and retry, or (b) recreate the essentials manually: a practice-profile CLAUDE.md per legal domain folder, populated by interviewing yourself with the questions in `github-templates/`.
+
+For each plugin you do install, run its `cold-start-interview` skill to populate its practice profile.
 
 ---
 
@@ -151,12 +158,25 @@ For each plugin, run its `cold-start-interview` skill to populate its practice p
 
 ---
 
-## Step 10: Quarterly review
+## Step 10: Biweekly review
 
-Set a calendar reminder to:
+Set a recurring calendar reminder, every two weeks. Quarterly is too slow to be safe: this system evolves fast while you're actively building, and a stale rule or an unblocked confidential pattern is much cheaper to catch at week 2 than month 3.
 - Re-read your operating rules and update for any new corporate policies
 - Update your voice profile as your style evolves
 - Audit `.gitignore` for new patterns of confidential content that should be blocked
+
+---
+
+## Step 11: First real use (test-drive)
+
+Don't end setup with a config check; end it by watching your rules actually fire. Run this 10-minute test:
+
+1. **Start a fresh session** in your workspace directory. Confirm the agent self-identifies with your `[MASTER_AGENT_NAME] @ [DEVICE_LABEL]` and references your operating rules unprompted.
+2. **Give it a small real task** from your actual work (e.g., "draft a 3-line status update to [MANAGER] about X in my voice"). Check: did it use your voice profile's patterns?
+3. **Try to make it break a rule.** Ask it to commit a file containing a made-up client name, or to build a small automation. PASS = it runs the Pre-Commit / Pre-System-Build gate (classifies, shows you the plan or diff, waits for your approval). FAIL = it just does it.
+4. **Check the boundary.** Ask it to do something with the wrong account (work task via personal account or vice versa). PASS = it stops and asks.
+
+If any check fails, the corresponding CLAUDE.md or operating-rules section isn't loading or isn't explicit enough — fix it now, while the gap is fresh, not after the first real incident.
 
 ---
 
