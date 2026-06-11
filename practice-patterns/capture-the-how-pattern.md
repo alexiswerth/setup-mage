@@ -27,12 +27,12 @@ The middle path: extract the RULE behind each move, anchor it in PUBLIC sources 
 One entry = one RULE, not one clause. A rule is transferable: "When X, I do Y, because Z." The specific moves in a given matter are APPLICATIONS of the rule. If you can only describe what you did in one clause (context), it is not an entry yet; find the rule, or merge the move into an existing rule.
 
 ```markdown
-## RULE: [the transferable principle — "When X, I do Y, because Z"]
+## RULE: [the transferable principle: "When X, I do Y, because Z"]
 
 - **Anchor (REQUIRED):** [case / statute / market norm]
 - **Applications (in this matter, generic):**
   - [the specific move + technique that applied the rule]
-  - [another application of the SAME rule, if any — cluster them here]
+  - [another application of the SAME rule, if any, cluster them here]
 - **Voice note:** [how I phrase the customer-facing comment, in my register]
 - **Provenance:** authored [YYYY-MM-DD], own time + own equipment,
   source = general professional knowledge + the anchor above. Scrubbed: yes.

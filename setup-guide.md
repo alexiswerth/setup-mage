@@ -1,4 +1,4 @@
-# Setup Guide — Rebuilding the Environment
+# Setup Guide, Rebuilding the Environment
 
 Follow these steps to set up a fresh Claude-assisted legal workflow environment on a new machine, using the templates in this repo.
 
@@ -11,7 +11,7 @@ Follow these steps to set up a fresh Claude-assisted legal workflow environment 
 - A Mac (these instructions assume macOS; adapt for Linux/Windows as needed)
 - Claude Code installed
 - Git installed
-- A GitHub account (personal or corporate — wherever your CTO has approved you to operate)
+- A GitHub account (personal or corporate, wherever your CTO has approved you to operate)
 - Access to your corporate AI security policies (or willingness to build them)
 
 ---
@@ -74,9 +74,9 @@ Mirror the folder structure from `folder-scaffolds/google-drive-layout/` in your
    - Your data classification policy
    - Your retention requirements
 
-3. **This populated file is gitignored** — it never gets committed.
+3. **This populated file is gitignored**, it never gets committed.
 
-4. **If your organization has no written AI policy yet** (common!), don't stall here. Mark each policy section `POLICY NOT YET DEFINED — using template guidance` and use the template's built-in guidance as your starting framework (it's distilled from NIST AI RMF and ISO 42001 norms). Two rules even without a policy: get your CTO/CISO's verbal OK on the tools you're using, and revisit this file the day a written policy lands.
+4. **If your organization has no written AI policy yet** (common!), don't stall here. Mark each policy section `POLICY NOT YET DEFINED, using template guidance` and use the template's built-in guidance as your starting framework (it's distilled from NIST AI RMF and ISO 42001 norms). Two rules even without a policy: get your CTO/CISO's verbal OK on the tools you're using, and revisit this file the day a written policy lands.
 
 ---
 
@@ -89,7 +89,7 @@ Mirror the folder structure from `folder-scaffolds/google-drive-layout/` in your
 
 2. Fill in placeholders with the same values you used in Step 4.
 
-3. **Also gitignored** — never committed.
+3. **Also gitignored**, never committed.
 
 ---
 
@@ -123,9 +123,9 @@ Then open each file and replace:
 
 1. Read `voice-profile/voice-profile.md` to understand the structure
 2. Either: (a) have Claude analyze your Slack + Gmail in a session to generate your own, or (b) build it manually based on examples you write
-3. To invoke the analysis in a session: connect your Gmail (and Slack export if you have one), then ask your master agent to "read my last ~200 sent messages and draft a voice profile using the structure in voice-profile.md — patterns only, with examples." Review and prune; you own what's documented about you.
+3. To invoke the analysis in a session: connect your Gmail (and Slack export if you have one), then ask your master agent to "read my last ~200 sent messages and draft a voice profile using the structure in voice-profile.md, patterns only, with examples." Review and prune; you own what's documented about you.
 4. Save the result to `~/Desktop/Claude/voice-profile/voice-profile.md`
-5. **Sanitize before committing** — strip any real names, replace with `[MANAGER]`, `[VENDOR]`, `[CUSTOMER]` etc.
+5. **Sanitize before committing**, strip any real names, replace with `[MANAGER]`, `[VENDOR]`, `[CUSTOMER]` etc.
 
 ---
 
@@ -141,7 +141,7 @@ If available:
 # (repeat for other plugins)
 ```
 
-**If the marketplace is NOT available** (older Claude Code version, restricted org settings, or no source URL): don't block. The plugins are conveniences, not prerequisites — everything in this guide works without them. Skip to Step 9, and either (a) update Claude Code (`claude update`) and retry, or (b) recreate the essentials manually: a practice-profile CLAUDE.md per legal domain folder, populated by interviewing yourself with the questions in `github-templates/`.
+**If the marketplace is NOT available** (older Claude Code version, restricted org settings, or no source URL): don't block. The plugins are conveniences, not prerequisites, everything in this guide works without them. Skip to Step 9, and either (a) update Claude Code (`claude update`) and retry, or (b) recreate the essentials manually: a practice-profile CLAUDE.md per legal domain folder, populated by interviewing yourself with the questions in `github-templates/`.
 
 For each plugin you do install, run its `cold-start-interview` skill to populate its practice profile.
 
@@ -176,7 +176,7 @@ Don't end setup with a config check; end it by watching your rules actually fire
 3. **Try to make it break a rule.** Ask it to commit a file containing a made-up client name, or to build a small automation. PASS = it runs the Pre-Commit / Pre-System-Build gate (classifies, shows you the plan or diff, waits for your approval). FAIL = it just does it.
 4. **Check the boundary.** Ask it to do something with the wrong account (work task via personal account or vice versa). PASS = it stops and asks.
 
-If any check fails, the corresponding CLAUDE.md or operating-rules section isn't loading or isn't explicit enough — fix it now, while the gap is fresh, not after the first real incident.
+If any check fails, the corresponding CLAUDE.md or operating-rules section isn't loading or isn't explicit enough, fix it now, while the gap is fresh, not after the first real incident.
 
 ---
 
@@ -186,5 +186,5 @@ If any check fails, the corresponding CLAUDE.md or operating-rules section isn't
 |---|---|
 | `gh` not authenticating | Make sure you're using the correct GitHub account (personal vs. corporate). Re-run `gh auth login`. |
 | Plugin install fails | Verify your Claude Code version supports plugins. Check the marketplace source URL. |
-| Populated file gets staged for commit | Check `.gitignore` — add a more specific pattern if needed. Unstage with `git restore --staged <file>`. |
+| Populated file gets staged for commit | Check `.gitignore`, add a more specific pattern if needed. Unstage with `git restore --staged <file>`. |
 | Voice profile feels off | Re-run analysis in a session with more recent messages, or hand-edit the rules section. |
