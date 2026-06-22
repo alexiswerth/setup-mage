@@ -40,6 +40,14 @@ If a file has a `.docx` extension it must be real Word OOXML (use a real generat
 
 Append `.v2`, `.v3` before the extension on meaningful content changes. Keep prior versions as the audit trail. Don't bump within an active editing session; bump when finalizing.
 
+## 9. In writeups, the supporting work gets depth too (lead with the insight, not the label)
+
+When you summarize work for someone (a retrospective, a report, a handoff), the marquee deliverable pulls full treatment and the supporting methods tend to collapse to one bullet each. Resist that: several supporting methods are usually the cleverest things you built, and a lone bullet reads as an afterthought. Give each its own short section answering what problem it solves, why the approach is non-obvious, what it shows about the craft, and what it generalizes to. Lead each with the insight, not the name: "I queried by topic instead of by record to beat the tool's result cap" lands harder than "the extraction pattern." Hold the same honesty in the failures section, and extend the same depth to the wins that are currently thin.
+
+## 10. When you change a file the human is reviewing, force the fresh copy and show the literal diff
+
+If a human has a document open and you regenerate it, their editor may keep showing the cached copy, so they review stale text without knowing. After any change: rebuild the deliverable (re-render any HTML/text twins), close the stale window and reopen the fresh file, and report the change verbatim, the exact old text and the exact new text, not a paraphrase. The verbatim diff is what lets them actually approve the edit, which matters most for anything leaving the machine.
+
 ---
 
 *All lessons fully genericized from field use.*
