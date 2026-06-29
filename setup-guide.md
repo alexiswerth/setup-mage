@@ -141,24 +141,42 @@ If available:
 # (repeat for other plugins)
 ```
 
-**If the marketplace is NOT available** (older Claude Code version, restricted org settings, or no source URL): don't block. The plugins are conveniences, not prerequisites, everything in this guide works without them. Skip to Step 9, and either (a) update Claude Code (`claude update`) and retry, or (b) recreate the essentials manually: a practice-profile CLAUDE.md per legal domain folder, populated by interviewing yourself with the questions in `github-templates/`.
+**If the marketplace is NOT available** (older Claude Code version, restricted org settings, or no source URL): don't block. The plugins are conveniences, not prerequisites, everything in this guide works without them. Skip ahead, and either (a) update Claude Code (`claude update`) and retry, or (b) recreate the essentials manually: a practice-profile CLAUDE.md per legal domain folder, populated by interviewing yourself with the questions in `github-templates/`.
 
 For each plugin you do install, run its `cold-start-interview` skill to populate its practice profile.
 
 ---
 
-## Step 9: Verify
+## Step 9: Install the backup automation
+
+Set up the one piece of automation that writes to a remote: the sanitized backup.
+
+1. Copy the template and make it executable:
+   ```bash
+   cp ~/Desktop/setup-mage/scripts/backup-template.sh ~/bin/backup.sh
+   chmod +x ~/bin/backup.sh
+   ```
+2. Open `~/bin/backup.sh` and fill in the four `[PLACEHOLDERS]` (private repo path, device label, sanitized-memory dir, voice-profile path).
+3. Test it: run `~/bin/backup.sh`. With nothing changed it prints "Already up to date." With a sanitized-memory change it commits + pushes to your **private** repo.
+4. The refusal gates abort the push if raw memory, matters/outputs/client content, or org-derived files (CLAUDE.md, operating-rules, config/) ever get staged. Keep them; add new gate patterns as new confidential categories emerge.
+
+See `scripts/README.md` for detail.
+
+---
+
+## Step 10: Verify
 
 - [ ] `~/CLAUDE.md`, `~/.claude/CLAUDE.md`, `~/Desktop/Claude/CLAUDE.md` all reference your operating rules
 - [ ] `~/.claude/plugins/config/claude-for-legal/operating-rules.md` exists, populated, NOT tracked by git
 - [ ] `~/Desktop/Claude/` has all 12 plugin folders
 - [ ] Google Drive has matching folder structure
 - [ ] Voice profile exists at `~/Desktop/Claude/voice-profile/voice-profile.md`
+- [ ] `~/bin/backup.sh` runs and pushes sanitized memory; the refusal gates block anything else
 - [ ] `.gitignore` is working: `git status` in the repo should NOT show populated config files
 
 ---
 
-## Step 10: Biweekly review
+## Step 11: Biweekly review
 
 Set a recurring calendar reminder, every two weeks. Quarterly is too slow to be safe: this system evolves fast while you're actively building, and a stale rule or an unblocked confidential pattern is much cheaper to catch at week 2 than month 3.
 - Re-read your operating rules and update for any new corporate policies
@@ -167,7 +185,7 @@ Set a recurring calendar reminder, every two weeks. Quarterly is too slow to be 
 
 ---
 
-## Step 11: First real use (test-drive)
+## Step 12: First real use (test-drive)
 
 Don't end setup with a config check; end it by watching your rules actually fire. Run this 10-minute test:
 

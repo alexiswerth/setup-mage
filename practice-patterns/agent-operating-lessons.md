@@ -48,6 +48,30 @@ When you summarize work for someone (a retrospective, a report, a handoff), the 
 
 If a human has a document open and you regenerate it, their editor may keep showing the cached copy, so they review stale text without knowing. After any change: rebuild the deliverable (re-render any HTML/text twins), close the stale window and reopen the fresh file, and report the change verbatim, the exact old text and the exact new text, not a paraphrase. The verbatim diff is what lets them actually approve the edit, which matters most for anything leaving the machine.
 
+## 11. Generate Office files with a real library, not an HTML converter
+
+When you need a real `.docx`/`.xlsx`/`.pptx`, build it with a document library that gives you explicit control (e.g. python-docx), not by converting HTML→Office with a generic system converter. HTML→Office converters inject styling artifacts you didn't ask for — the classic failure is bold text and headings rendered in red, or literal markdown leaking through. You often won't see it until the human opens the file and it looks broken. Set text color, fonts, and heading styles explicitly; verify the output (e.g. grep the document XML for unexpected colors) before handing it over.
+
+## 12. HTML is a local-render format, not a shareable cloud artifact
+
+An `.html` file only renders in a browser opened against the local file. Drop it in a cloud drive and the in-app preview shows the raw source code, not the page — there's no setting that fixes this (cloud drives don't host/serve HTML). So: keep HTML as your *local* review artifact, and share formatted output as a real Doc/Word file (which previews correctly in-browser via a link). If a recipient genuinely needs the HTML, tell them to **download it first, then open the downloaded file** — opening it inside the cloud drive will only ever show code.
+
+## 13. One source of truth, render the rest
+
+For any deliverable that exists in multiple formats (markdown + HTML + Word), keep a single source file and *generate* the others from it on every change. Never hand-edit the derived copies — they drift, and you lose track of which is current. Pair this with lesson 10: after regenerating, force the human's stale window closed and reopen the fresh render. The discipline is "edit the source, re-run the build, reopen the output," every time.
+
+## 14. Pre-check tool capability before promising; fail fast at the first wall
+
+Before promising an outward or irreversible action (edit an existing cloud doc, upload a file, post somewhere), confirm the capability actually exists. Many integrations have sharp limits you only hit mid-task: a read+create file connector may have **no edit tool** for existing docs and **no delete tool** to self-clean a mistake; uploads may require the whole file inline as a parameter, so **large binaries blow the size limit** and can't be sent at all. When you hit a wall like this, STOP and surface it in your first response, don't rabbit-hole through weak workarounds (re-compress, re-format, regenerate) that waste time the human could have skipped in seconds. Default to handing the human a **copy-paste-ready artifact** plus exactly where it goes when the tool can't complete the last step itself.
+
+## 15. Back up proactively, don't gate it behind a question
+
+When work is done or memory/deliverables have changed, run the backup yourself rather than asking "want me to back up?" Losing work is the bigger risk; the confirmation tax isn't worth it. Still report what was pushed, and the pre-commit gate (sanitize, strip, verify) still runs on anything new, but the routine backup itself shouldn't wait to be told. Back up at end of task, after meaningful memory writes, and at end of day, by default.
+
+## 16. Match deliverable format to how it will be used
+
+Don't default to the most elaborate or most "final" format. Pick the one that fits the recipient's actual workflow: an editable doc if they'll mark it up, plain text (or a clean code block) if they'll paste it into mail or chat where markdown won't render, a real Office file if they need to open it in that app. When the format is genuinely ambiguous (redline vs. memo, one-pager vs. full brief, editable vs. read-only), **ask "do you need X or Y?"** instead of guessing. The wrong format reads as either careless or as extra work for them to convert.
+
 ---
 
 *All lessons fully genericized from field use.*

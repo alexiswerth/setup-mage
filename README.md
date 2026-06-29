@@ -30,6 +30,19 @@ The three problems this repo solves:
 
 ---
 
+## The two-repo rebuild kit
+
+Mage rebuilds from **two** repos that survive any single machine:
+
+1. **This repo (`setup-mage`, public)** — the framework: CLAUDE.md + operating-rules templates, voice profile, methodology patterns, folder scaffolds, the backup script (`scripts/`), and `setup-guide.md`. No real content, safe to be public.
+2. **Your private repo (e.g. `*-sanitized-memory`, private)** — your sanitized memory twin (`memory-portable/`) and your filled-in voice profile. Your actual decisions and context, names stripped.
+
+Clone both onto a fresh machine, run `setup-guide.md`, drop your sanitized memory into the new `memory/` (or keep reading it from the private repo), and Mage is back — same rules, same voice, same accumulated lessons. The only things that *don't* come back are whatever was tied to a specific employer (populated operating-rules, plugin practice profiles, raw client work) — by design. You rebuild those fresh for the new context.
+
+> Keep both repos on an account you control independent of any employer (personal GitHub), and make sure you can reach it — credentials and 2FA not tied to a work device. That independence is what makes the kit actually portable.
+
+---
+
 ## How to use this repo
 
 ### To rebuild your own environment on a new machine
