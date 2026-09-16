@@ -72,4 +72,4 @@ Before ANY file gets pushed to this repo, run the 5-step gate (codified in opera
 
 ## License
 
-No license — private repo, all rights reserved.
+This is a public repository. No license is granted; all rights are reserved.
