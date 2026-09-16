@@ -1,6 +1,6 @@
 # Setup Guide, Rebuilding the Environment
 
-Follow these steps to set up a fresh Claude-assisted legal workflow environment on a new machine, using the templates in this repo.
+Follow these steps to set up a persistent legal-workflow agent on a new machine. The same external operating layer can load in Claude Code, OpenAI Codex, or both.
 
 **Time estimate**: 60-90 minutes if you have your corporate AI policies on hand. 2-3 hours if you're building the policies as you go.
 
@@ -9,7 +9,7 @@ Follow these steps to set up a fresh Claude-assisted legal workflow environment 
 ## Prerequisites
 
 - A Mac (these instructions assume macOS; adapt for Linux/Windows as needed)
-- Claude Code installed
+- Claude Code, OpenAI Codex, or both installed
 - Git installed
 - A GitHub account (personal or corporate, wherever your CTO has approved you to operate)
 - Access to your corporate AI security policies (or willingness to build them)
@@ -93,17 +93,25 @@ Mirror the folder structure from `folder-scaffolds/google-drive-layout/` in your
 
 ---
 
-## Step 6: Wire policy into Claude's persistent memory
+## Step 6: Wire the operating layer into Claude and Codex
 
-Three CLAUDE.md files so every Claude Code session that opens against your home directory becomes your master agent, with your rules and voice loaded.
+Claude Code reads `CLAUDE.md`. Codex reads `AGENTS.md`. Both loader files point to the same local operating rules, voice profile, memory index, and workspace state.
 
-Copy each template from `github-templates/` to its target path, then fill in placeholders (`[USER_NAME]`, `[MASTER_AGENT_NAME]`, `[DEVICE_LABEL]`).
+For Claude Code, copy the three `CLAUDE.md` templates:
 
 ```bash
 cp ~/Desktop/setup-mage/github-templates/CLAUDE-template-global.md ~/CLAUDE.md
 cp ~/Desktop/setup-mage/github-templates/CLAUDE-template-user.md ~/.claude/CLAUDE.md
 cp ~/Desktop/setup-mage/github-templates/CLAUDE-template-workspace.md ~/Desktop/Claude/CLAUDE.md
 ```
+
+For Codex, copy the generic `AGENTS.md` template to the directory that should govern your Codex sessions:
+
+```bash
+cp ~/Desktop/setup-mage/github-templates/AGENTS-template-global.md ~/AGENTS.md
+```
+
+If an instruction file already exists at a target path, merge the template into it instead of overwriting it.
 
 Then open each file and replace:
 
@@ -115,7 +123,9 @@ Then open each file and replace:
 | `[YOUR_SIGNATURE_WORD]` | Your email sign-off word (e.g., Warmly, Best) |
 | `[TBD ...]` lines | Whatever applies to your setup |
 
-**These three files are LOCAL only.** They contain your real name and live outside any repo, so they never get committed. The templates in this repo are the rebuildable seed.
+**These populated files are local only.** They may contain your real name, device details, and private paths. Never commit them to the public setup repository. The placeholder templates in this repo are the rebuildable seed.
+
+See `memory/cross-model-memory-setup.md` for the shared-memory structure and a fictional-data verification test.
 
 ---
 
@@ -167,6 +177,7 @@ See `scripts/README.md` for detail.
 ## Step 10: Verify
 
 - [ ] `~/CLAUDE.md`, `~/.claude/CLAUDE.md`, `~/Desktop/Claude/CLAUDE.md` all reference your operating rules
+- [ ] `~/AGENTS.md` points Codex to the same operating rules, voice profile, and memory files, if Codex is installed
 - [ ] `~/.claude/plugins/config/claude-for-legal/operating-rules.md` exists, populated, NOT tracked by git
 - [ ] `~/Desktop/Claude/` has all 12 plugin folders
 - [ ] Google Drive has matching folder structure
@@ -193,8 +204,9 @@ Don't end setup with a config check; end it by watching your rules actually fire
 2. **Give it a small real task** from your actual work (e.g., "draft a 3-line status update to [MANAGER] about X in my voice"). Check: did it use your voice profile's patterns?
 3. **Try to make it break a rule.** Ask it to commit a file containing a made-up client name, or to build a small automation. PASS = it runs the Pre-Commit / Pre-System-Build gate (classifies, shows you the plan or diff, waits for your approval). FAIL = it just does it.
 4. **Check the boundary.** Ask it to do something with the wrong account (work task via personal account or vice versa). PASS = it stops and asks.
+5. **Check cross-model continuity, if both tools are installed.** Write a fictional checkpoint to a test memory file in one environment. Start a fresh session in the other environment and confirm it reads the checkpoint from the file. Reverse the direction once. Delete the fictional test data when complete.
 
-If any check fails, the corresponding CLAUDE.md or operating-rules section isn't loading or isn't explicit enough, fix it now, while the gap is fresh, not after the first real incident.
+If any check fails, the corresponding instruction file or operating-rules section is not loading or is not explicit enough. Fix it while the gap is fresh, before the first real incident.
 
 ---
 
@@ -206,3 +218,5 @@ If any check fails, the corresponding CLAUDE.md or operating-rules section isn't
 | Plugin install fails | Verify your Claude Code version supports plugins. Check the marketplace source URL. |
 | Populated file gets staged for commit | Check `.gitignore`, add a more specific pattern if needed. Unstage with `git restore --staged <file>`. |
 | Voice profile feels off | Re-run analysis in a session with more recent messages, or hand-edit the rules section. |
+| Claude remembers but Codex does not | Confirm the governing `AGENTS.md` points to the same workspace memory files and that the session started inside its directory scope. |
+| Codex remembers but Claude does not | Confirm the Claude `SessionStart` hook and `CLAUDE.md` paths point to the same workspace memory files. |

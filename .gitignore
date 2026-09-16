@@ -6,6 +6,15 @@
 operating-rules.md
 subagent-policy-briefing.md
 
+# Populated agent instruction files (templates use different filenames)
+AGENTS.md
+CLAUDE.md
+
+# Live memory controls (sanitized methodology files may still be committed)
+**/memory/MEMORY.md
+**/memory/pending-todos.md
+**/memory/_changelog.md
+
 # Matter workspaces (client work product)
 **/matters/
 
